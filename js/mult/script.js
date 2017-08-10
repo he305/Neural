@@ -3,13 +3,15 @@ var network;
 function setup() {
     //network = new NeuralNetwork(3, 4, 2);
 
-    var m = new Matrix(3, 3);
-    //m.add(1);
-    var n = new Matrix(3, 3);
-    n.add(m);
-
-    console.table(n.matrix);
-    console.log(n.matrix[1][0]);
+    var neuron = new Neuron(1)
+    console.log(neuron.val);
+    console.log(neuron.activatedVal);
+    console.log(neuron.derivedVal);
+    var mat = Matrix.createMatrix(1, 1, 2, 2);
+    mat.transpose();
+    QUnit.test("test", function(assert) {
+        assert.deepEqual(mat.matrix, [[1, 2], [1, 2]]);
+    });
 }
 
 function draw() {

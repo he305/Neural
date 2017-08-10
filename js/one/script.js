@@ -1,6 +1,6 @@
 var weights = [];
 var points = [];
-var size = 50;
+var size = 100;
 var lr = 0.001;
 
 var currentCorrect = 0;
@@ -49,18 +49,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 ctx.fillRect(points[i].x, points[i].y, 5, 5);
 
             }
+        console.log(currentCorrect + " correct of total " + size);
         if (currentCorrect == size)
             {
                 clearInterval(loop);
                 console.log("Done");
                 console.log(weights);
             }
-    }, 500);
+    }, 10);
 });
 
 function Point() {
     this.x = Math.floor(Math.random() * canvas.width);
-    this.y = Math.floor(Math.random() * canvas.height);
+    this.y = this.x + Math.random() * 0.1 - 0.05;//Math.floor(Math.random() * canvas.height);
     
     this.label = function()
     {
